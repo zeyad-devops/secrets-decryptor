@@ -26,7 +26,7 @@ def process_secrets(yaml_content):
         # Assuming the key for naming the file is something like 'SecretName'
         secret_name_key = 'SecretName'
         if secret_name_key in section:
-            secret_name = section[secret_name_key]
+            secret_name = section.pop(secret_name_key)  # Remove SecretName from the section
             json_file = f"{secret_name}.json"
 
             # Decrypt only base64 encoded secrets
